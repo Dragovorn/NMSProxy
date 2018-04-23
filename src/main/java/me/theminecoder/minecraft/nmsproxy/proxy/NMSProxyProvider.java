@@ -14,6 +14,7 @@ import net.bytebuddy.implementation.FixedValue;
 import net.bytebuddy.implementation.MethodCall;
 import net.bytebuddy.implementation.bytecode.assign.Assigner;
 import net.bytebuddy.pool.TypePool;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -29,6 +30,13 @@ import java.util.stream.Collectors;
  * @author theminecoder
  */
 public final class NMSProxyProvider {
+
+    public static final String NMS_VERSION;
+
+    static {
+        String packageName = Bukkit.getServer().getClass().getPackage().getName();
+        NMS_VERSION = packageName.substring(packageName.lastIndexOf(".") + 1);
+    }
 
     private static final Map<JavaPlugin, NMSProxyProvider> PLUGIN_INSTANCES = Maps.newHashMap();
 

@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NMSMethod {
 
-    NMSVersionName[] versionNames() default {};
+    NMSVersionName[] value() default {};
 
 }

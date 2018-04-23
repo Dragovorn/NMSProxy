@@ -16,7 +16,7 @@ import java.lang.reflect.Modifier;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static me.theminecoder.minecraft.nmsproxy.NMSProxyPlugin.NMS_VERSION;
+import static me.theminecoder.minecraft.nmsproxy.proxy.NMSProxyProvider.NMS_VERSION;
 import static me.theminecoder.minecraft.nmsproxy.util.ClassUtil.forEachClassPossibility;
 
 /**
@@ -40,7 +40,7 @@ public class NMSProxyInvocationMapper {
             String methodName = proxyMethod.getName();
 
             if (proxyMethod.getDeclaringClass() != Object.class) {
-                for (NMSVersionName methodVersion : nmsMethodAnnotation.versionNames()) {
+                for (NMSVersionName methodVersion : nmsMethodAnnotation.value()) {
                     if (methodVersion.version().equalsIgnoreCase(NMS_VERSION)) {
                         methodName = methodVersion.name();
                         break;

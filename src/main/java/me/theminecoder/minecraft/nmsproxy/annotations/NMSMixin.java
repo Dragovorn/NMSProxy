@@ -5,13 +5,13 @@ package me.theminecoder.minecraft.nmsproxy.annotations;
  */
 public @interface NMSMixin {
 
-    public enum Action {
+    enum Action {
         PREPEND,
         REPLACE,
         APPEND
     }
 
-    Action action();
+    Action value();
 
     NMSVersionName[] versionNames() default {};
 

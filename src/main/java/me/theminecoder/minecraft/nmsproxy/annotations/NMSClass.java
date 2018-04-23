@@ -1,6 +1,6 @@
 package me.theminecoder.minecraft.nmsproxy.annotations;
 
-import me.theminecoder.minecraft.nmsproxy.NMSProxyPlugin;
+import me.theminecoder.minecraft.nmsproxy.proxy.NMSProxyProvider;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NMSClass {
 
-    public enum Type {
+    enum Type {
         NMS("net.minecraft.server.%version%."),
         CRAFTBUKKIT("org.bukkit.craftbukkit.%version%."),
         OTHER("");
@@ -30,7 +30,7 @@ public @interface NMSClass {
         }
 
         public String getClassName(String className) {
-            return (prefix + className).replaceFirst("%version%", NMSProxyPlugin.NMS_VERSION);
+            return (prefix + className).replaceFirst("%version%", NMSProxyProvider.NMS_VERSION);
         }
     }
 

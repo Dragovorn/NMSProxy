@@ -12,12 +12,12 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface NMSField {
 
-    public enum Type {
+    enum Type {
         GETTER,
         SETTER
     }
 
-    Type type();
+    Type value();
 
     NMSVersionName[] versionNames() default {};
 
